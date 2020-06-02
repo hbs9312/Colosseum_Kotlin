@@ -31,6 +31,7 @@ class LoginActivity : BaseActivity() {
                     val token = data.getString("token")
 
                     ContextUtil.setUserToken(mContext, token)
+
                 }
 
 
