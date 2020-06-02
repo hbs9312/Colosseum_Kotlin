@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import kr.co.tjoeun.colosseum_kotlin.utils.ContextUtil
+import kr.co.tjoeun.colosseum_kotlin.utils.ServerUtil
+import org.json.JSONObject
 
 class MainActivity : BaseActivity() {
 
@@ -24,6 +26,13 @@ class MainActivity : BaseActivity() {
         title = "진행중인 토론 목록"
 
         Log.d("로그인토큰", ContextUtil.getUserToken(mContext));
+
+        ServerUtil.getRequestMainInfo(mContext, object : ServerUtil.JsonReponseHandler{
+            override fun onReponse(json: JSONObject) {
+                Log.d("주제목록응답", json.toString())
+            }
+
+        })
     }
 
 }
