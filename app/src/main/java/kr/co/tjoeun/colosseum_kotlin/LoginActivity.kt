@@ -1,5 +1,6 @@
 package kr.co.tjoeun.colosseum_kotlin
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -31,6 +32,10 @@ class LoginActivity : BaseActivity() {
                     val token = data.getString("token")
 
                     ContextUtil.setUserToken(mContext, token)
+
+                    val myIntent = Intent(mContext, MainActivity::class.java)
+                    startActivity(myIntent)
+                    finish()
 
                 }
 
